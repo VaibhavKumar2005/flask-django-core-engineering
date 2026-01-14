@@ -6,7 +6,6 @@ def home():
     user_name = "Vaibhav"
     project_status = "44 Contributions & Counting"
     
-    # We are returning a f-string (formatted string) to see the change
     return f"""
     <h1>Welcome, {user_name}!</h1>
     <p>Current Progress: <strong>{project_status}</strong></p>
