@@ -3,9 +3,9 @@ name: Build and Push ML Dashboard
 on:
   push:
     branches: [ "main" ]
+    # FIX 1: Listen to the correct nested folder
     paths:
-      # Now this path exists!
-      - 'v2-ml-dashboard/**' 
+      - 'flask-dashboard/v2-ml-dashboard/**'
       - '.github/workflows/docker-build.yml'
 
 jobs:
@@ -28,8 +28,8 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
-          # Simple path because we are in the right repo
-          context: ./v2-ml-dashboard 
+          # FIX 2: Point to the folder INSIDE flask-dashboard
+          context: ./flask-dashboard/v2-ml-dashboard
           push: true
           tags: |
             vaibhavkumar0412/flask-ml-dashboard:latest
